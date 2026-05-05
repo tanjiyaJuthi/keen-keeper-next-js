@@ -19,7 +19,7 @@ const Footer = () => {
                 
                     <p className="pt-4 pb-6 text-gray-100">Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.</p>
 
-                    <div>
+                    <div className="flex flex-col items-center text-center">
                         <p className="pb-4 text-lg">Social Links</p>
 
                         <ul className="flex gap-2 items-center">
@@ -38,7 +38,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="footer-bottom flex justify-between items-center py-9.5 border-t boder-[#32594c] text-sm">
+                <div className="footer-bottom flex justify-between items-center py-9.5 border-t border-[#64748B] text-sm">
                     <p>© 2026 KeenKeeper. All rights reserved.</p>
 
                     <ul className="flex gap-5  items-center">

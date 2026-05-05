@@ -43,14 +43,14 @@ const Navbar = () => {
                                 </ul>
                             </div>
 
-                            <a className="btn btn-ghost text-xl">
+                            <Link href="/" className="btn btn-ghost text-xl">
                                 <Image
                                     src="/assets/logo.png"
                                     width={100}
                                     height={100}
                                     alt="KeenKeeper"
                                 />
-                            </a>
+                            </Link>
                         </div>
 
                         <div className="navbar-end">

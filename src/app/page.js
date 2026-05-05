@@ -1,9 +1,16 @@
-import Image from "next/image";
+import Counter from "@/components/Counter";
+import Friends from "@/components/Friends";
+import Hero from "@/components/Hero";
+import { DiVim } from "react-icons/di";
 
 export default function Home() {
   return (
-    <div>
-      
+    <div className="bg-[#F8FAFC]">
+      <div className="max-w-6xl mx-auto">
+        <Hero />
+        <Counter/>
+        <Friends />
+      </div>
     </div>
   );
 }
