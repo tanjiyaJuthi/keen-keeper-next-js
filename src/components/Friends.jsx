@@ -1,7 +1,7 @@
 import FriendsCard from "./shared/FriendsCard";
 
 const Friends = async () => {
-    const res = await fetch('http://localhost:3000/friends.json');
+    const res = await fetch(process.env.NEXT_APP_URL + "/friends.json");
     const friends = await res.json();
 
     return (
