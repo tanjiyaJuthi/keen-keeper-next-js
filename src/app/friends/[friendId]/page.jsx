@@ -110,8 +110,8 @@ const FriendDetailsPage = async ({ params }) => {
                         </div>
                     </div>
 
-                    <div className="flex-[2] flex flex-col gap-5 w-full">
-                        <div className="flex gap-10 justify-between mb-2">
+                    <div className="flex-2 flex flex-col gap-5 w-full">
+                        <div className="flex gap-10 justify-between">
                             {stats.map((stat, i) => (
                                 <StatCard key={i} value={stat.value} label={stat.label} />
                             ))}

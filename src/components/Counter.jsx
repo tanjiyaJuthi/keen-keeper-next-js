@@ -1,10 +1,13 @@
 import React from 'react';
 
-const Counter = () => {
+const Counter = async () => {
+    const res = await fetch(process.env.NEXT_APP_URL + "/friends.json");
+    const friends = await res.json();
+
     return (
         <div className="py-10 grid grid-cols-2 lg:grid-cols-4 gap-10 justify-between text-center">
             <div className="bg-white p-5 rounded-sm shadow-sm">
-                <p className="font-bold text-2xl">10</p>
+                <p className="font-bold text-2xl">{friends.length}</p>
                 <p className=" text-[#64748B] mt-2">Total Friends</p>
             </div>
 
