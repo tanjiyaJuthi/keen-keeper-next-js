@@ -97,7 +97,7 @@ const FriendDetailsPage =  ({ params }) => {
     return (
         <div className="bg-[#F8FAFC] pt-20 pb-20">
             <div className="max-w-6xl mx-auto">
-                <div className="flex gap-10">
+                <div className="flex-row lg:flex gap-10">
                     <div className="flex-1">
                         <div className="card bg-base-100 shadow-sm mb-5">
                             <figure className="px-6 pt-6">

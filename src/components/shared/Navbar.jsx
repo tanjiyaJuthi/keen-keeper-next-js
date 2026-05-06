@@ -12,15 +12,15 @@ const Navbar = () => {
     const isActive = (path) => pathname === path;
 
     const navLinks = <>
-        <li className={`ml-2 ${isActive('/') ? 'bg-[#244D3F] rounded-sm text-white' : ''}`}>
+        <li className={`ml-0 lg:ml-2 ${isActive('/') ? 'bg-[#244D3F] rounded-sm text-white' : ''}`}>
             <Link href="/"><FaHome />Home</Link>
         </li>
 
-        <li className={`ml-2 ${isActive('/timeline') ? 'bg-[#244D3F] rounded-sm text-white' : ''}`}>
+        <li className={`ml-0 lg:ml-2 ${isActive('/timeline') ? 'bg-[#244D3F] rounded-sm text-white' : ''}`}>
             <Link href="/timeline"><RiTimeLine />Timeline</Link>
         </li>
 
-        <li className={`ml-2 ${isActive('/stats') ? 'bg-[#244D3F] rounded-sm text-white' : ''}`}>
+        <li className={`ml-0 lg:ml-2 ${isActive('/stats') ? 'bg-[#244D3F] rounded-sm text-white' : ''}`}>
             <Link href="/stats"><ImStatsDots />Stats</Link>
         </li>
     </>
@@ -53,7 +53,7 @@ const Navbar = () => {
                             </Link>
                         </div>
 
-                        <div className="navbar-end">
+                        <div className="navbar-end hidden lg:block text-right">
                             <ul className="menu menu-horizontal px-1">
                                 {navLinks}
                             </ul>
