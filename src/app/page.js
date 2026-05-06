@@ -6,11 +6,9 @@ import { DiVim } from "react-icons/di";
 export default function Home() {
   return (
     <div className="bg-[#F8FAFC]">
-      <div className="max-w-6xl mx-auto">
         <Hero />
         <Counter/>
         <Friends />
-      </div>
     </div>
   );
 }

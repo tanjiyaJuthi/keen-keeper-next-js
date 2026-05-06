@@ -1,15 +1,18 @@
-const TimelinePage = () => {
+const TimelinePage = async () => {
+    const res = await fetch(process.env.NEXT_APP_URL + "/friends.json");
+    const friends = await res.json();
+
     return (
-        <div className="max-w-6xl mx-auto pt-20 pb-20 text-left">
+        <div className="pt-20 pb-20 w-full">
             <h2 className="text-5xl font-bold mb-6">Timeline</h2>
 
-            <div className="dropdown dropdown-bottom text-left">
+            <div className="dropdown dropdown-bottom">
                 <div
                     tabIndex={0}
                     role="button"
                     className="btn m-1 text-left"
                 >
-                    Click ⬇️
+                    Filter Timeline ⬇️
                 </div>
 
                 <ul
@@ -21,7 +24,14 @@ const TimelinePage = () => {
                 </ul>
             </div>
 
-            
+            <div className="card card-dash bg-base-100 mt-5">
+                <div className="card-body">
+                    <h2 className="card-title">Card Title</h2>
+                    <p>
+                    A card component has a figure, a body part, and inside body there are title and actions parts
+                    </p>
+                </div>
+            </div>
         </div>
     );
 };
