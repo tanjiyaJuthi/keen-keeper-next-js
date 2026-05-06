@@ -9,7 +9,8 @@
     "tags": ["college", "close friend"],
     "bio": "Met in university. Love hiking together.",
     "goal": 14,
-    "next_due_date": "2025-07-20"
+    "next_due_date": "2025-07-20",
+    "interaction_type": "call"
   },
   {
     "id": 2,
@@ -21,7 +22,8 @@
     "tags": ["work", "team"],
     "bio": "Colleague from marketing team.",
     "goal": 10,
-    "next_due_date": "2025-07-25"
+    "next_due_date": "2025-07-25",
+    "interaction_type": "text"
   },
   {
     "id": 3,
@@ -33,7 +35,8 @@
     "tags": ["gym", "fitness"],
     "bio": "Workout partner at the local gym.",
     "goal": 7,
-    "next_due_date": "2025-07-18"
+    "next_due_date": "2025-07-18",
+    "interaction_type": "video"
   },
   {
     "id": 4,
@@ -45,7 +48,8 @@
     "tags": ["family"],
     "bio": "Cousin living nearby.",
     "goal": 14,
-    "next_due_date": "2025-08-01"
+    "next_due_date": "2025-08-01",
+    "interaction_type": "call"
   },
   {
     "id": 5,
@@ -57,7 +61,8 @@
     "tags": ["startup", "tech"],
     "bio": "Met at a tech conference.",
     "goal": 10,
-    "next_due_date": "2025-07-22"
+    "next_due_date": "2025-07-22",
+    "interaction_type": "text"
   },
   {
     "id": 6,
@@ -69,7 +74,8 @@
     "tags": ["school"],
     "bio": "High school best friend.",
     "goal": 14,
-    "next_due_date": "2025-07-19"
+    "next_due_date": "2025-07-19",
+    "interaction_type": "video"
   },
   {
     "id": 7,
@@ -81,7 +87,8 @@
     "tags": ["neighbor"],
     "bio": "Lives next door.",
     "goal": 7,
-    "next_due_date": "2025-08-02"
+    "next_due_date": "2025-08-02",
+    "interaction_type": "call"
   },
   {
     "id": 8,
@@ -93,7 +100,8 @@
     "tags": ["volunteer"],
     "bio": "Worked together on a charity project.",
     "goal": 14,
-    "next_due_date": "2025-07-17"
+    "next_due_date": "2025-07-17",
+    "interaction_type": "text"
   },
   {
     "id": 9,
@@ -105,7 +113,8 @@
     "tags": ["gaming"],
     "bio": "Online gaming friend.",
     "goal": 10,
-    "next_due_date": "2025-07-26"
+    "next_due_date": "2025-07-26",
+    "interaction_type": "video"
   },
   {
     "id": 10,
@@ -117,7 +126,8 @@
     "tags": ["university"],
     "bio": "Classmate from final year.",
     "goal": 12,
-    "next_due_date": "2025-07-21"
+    "next_due_date": "2025-07-21",
+    "interaction_type": "call"
   },
   {
     "id": 11,
@@ -129,7 +139,8 @@
     "tags": ["sports"],
     "bio": "Football teammate.",
     "goal": 7,
-    "next_due_date": "2025-07-28"
+    "next_due_date": "2025-07-28",
+    "interaction_type": "text"
   },
   {
     "id": 12,
@@ -141,6 +152,7 @@
     "tags": ["book club"],
     "bio": "Met through a local book club.",
     "goal": 14,
-    "next_due_date": "2025-07-20"
+    "next_due_date": "2025-07-20",
+    "interaction_type": "video"
   }
 ]
