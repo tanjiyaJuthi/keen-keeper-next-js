@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+📌 KeenKeeper — Keep Your Friendships Alive
 
-## Getting Started
+A modern friendship tracking and relationship management web app built with Next.js, Tailwind CSS, and Recharts. KeenKeeper helps users stay connected by tracking interactions, visualizing friendship analytics, and reminding users to maintain meaningful relationships.
 
-First, run the development server:
+🚀 Live Demo
 
-```bash
+(Add your deployed link here)
+https://keen-livid.vercel.app/
+
+Responsive hero banner with call-to-action
+Summary cards showing friendship insights
+Grid layout displaying all friends from JSON data
+Clickable friend cards navigating to details page
+👤 Friend Details Page
+Full profile view of each friend
+Status-based UI indicators (overdue, on-track, due soon)
+Tags, bio, email display
+Action buttons (Snooze, Archive, Delete)
+Relationship goal tracking
+Quick Check-In system:
+📞 Call
+💬 Text
+📹 Video
+→ Automatically logs interactions + shows toast notifications
+📜 Timeline Page
+Chronological interaction history
+Filter by interaction type (Call / Text / Video / Meetup)
+Search and filter friends
+Clean timeline UI with icons and formatted dates
+📊 Stats / Analytics Page
+Pie chart using Recharts
+Breakdown of interaction types:
+Call
+Text
+Video
+Meetup
+⚙️ Extra Features
+Responsive design (mobile, tablet, desktop)
+Loading state during data fetch
+404 Not Found page
+Toast notifications on interactions
+Clean UI inspired by Figma design
+🛠️ Tech Stack
+⚛️ Next.js (App Router)
+🎨 Tailwind CSS
+📊 Recharts
+🔔 React Hot Toast (or similar)
+🧩 React Icons
+📦 JSON-based mock database
+📁 Project Structure
+/app
+  /home
+  /timeline
+  /stats
+  /friends/[id]
+/components
+/public
+  friends.json
+📊 Data Model
+
+Each friend is stored in friends.json:
+
+{
+  "id": 1,
+  "name": "John Doe",
+  "picture": "https://example.com/photo.jpg",
+  "email": "john@example.com",
+  "days_since_contact": 12,
+  "status": "overdue",
+  "tags": ["college", "close friend"],
+  "bio": "Met in university. Love hiking together.",
+  "goal": 14,
+  "next_due_date": "2025-07-20",
+  "interactions": [
+    {
+      "type": "call",
+      "with": "Marcus Johnson",
+      "date": "2026-03-19"
+    }
+  ]
+}
+🔔 Interaction System
+
+When users click:
+
+📞 Call
+💬 Text
+📹 Video
+
+The system:
+
+Adds a new timeline entry
+Stores interaction with timestamp
+Triggers toast notification
+📱 Responsive Design
+Mobile-first layout
+4-column grid on desktop
+Adaptive cards and timeline
+Fully responsive navigation
+🧪 Getting Started
+1. Clone repo
+git clone https://github.com/tanjiyaJuthi/keen-keeper-next-js
+2. Install dependencies
+npm install
+3. Run project
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🚀 Build & Deploy
+npm run build
+npm start
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🏆 Challenge Features
+📊 Interaction analytics (Recharts Pie Chart)
+🔍 Timeline filtering by interaction type
+📄 Professional README documentation
+👨‍💻 Author
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Your Name
+📧 tanjiyajuthi@gmail.com
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🌐 https://tanjiya.vercel.app/
 
-## Learn More
+📜 License
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is created for educational purposes.

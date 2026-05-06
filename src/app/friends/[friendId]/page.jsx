@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { MdDelete } from "react-icons/md";
 import { FiArchive } from "react-icons/fi";
@@ -6,14 +8,66 @@ import Link from "next/link";
 import { IoCallOutline } from "react-icons/io5";
 import { IoMdText } from "react-icons/io";
 import { CiVideoOn } from "react-icons/ci";
+import { use, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
-const FriendDetailsPage = async ({ params }) => {
-    const { friendId } = await params;
+const FriendDetailsPage =  ({ params }) => {
+    const { friendId } = use(params);
+    const [friend, setFriend] = useState(null);
 
-    const res = await fetch(process.env.NEXT_APP_URL + "/friends.json");
-    const friends = await res.json();
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await fetch("/friends.json");
+            const data = await res.json();
 
-    const friend = friends.find((f) => f.id === Number(friendId));
+            const selected = data.find((f) => f.id === Number(friendId));
+
+            // Load saved interactions
+            const stored = localStorage.getItem(`interactions-${friendId}`);
+            if (stored) {
+                selected.interactions = JSON.parse(stored);
+            }
+
+            setFriend(selected);
+        };
+
+        fetchData();
+    }, [friendId]);
+
+    const handleInteraction = (type) => {
+        if (!friend) return;
+
+        const newEntry = {
+            type,
+            with: friend.name,
+            date: new Date().toISOString(),
+        };
+
+        const updated = [newEntry, ...(friend.interactions || [])];
+
+        setFriend({
+            ...friend,
+            interactions: updated,
+        });
+
+        localStorage.setItem(
+            `interactions-${friendId}`,
+            JSON.stringify(updated)
+        );
+
+        const capitalized = type.charAt(0).toUpperCase() + type.slice(1);
+
+        const icons = {
+            call: "📞",
+            text: "💬",
+            video: "📹",
+        };
+
+        // ✅ TOAST
+        toast.success(`${icons[type]} ${capitalized} with ${friend.name}`);
+    };
+
+    if (!friend) return <p className="p-10">Loading...</p>;
 
     const statusStyles = {
         overdue: "bg-[#EF4444]",
@@ -38,6 +92,7 @@ const FriendDetailsPage = async ({ params }) => {
             </div>
         </div>
     );
+
 
     return (
         <div className="bg-[#F8FAFC] pt-20 pb-20">
@@ -134,20 +189,20 @@ const FriendDetailsPage = async ({ params }) => {
                                 <p className="font-semibold text-lg">Quick Check-In</p>
 
                                 <div className="grid grid-cols-3 gap-5 justify-between mt-3 w-full">
-                                    <div className="p-5 bg-gray-100 rounded-lg text-center">
+                                    <button onClick={() => handleInteraction("call")} className="p-5 bg-gray-100 rounded-lg text-center">
                                         <IoCallOutline className="text-xl mx-auto" />
                                         <p className="text-sm font-medium">Call</p>
-                                    </div>
+                                    </button>
 
-                                    <div className="p-5 bg-gray-100 rounded-lg text-center">
+                                    <button onClick={() => handleInteraction("text")} className="p-5 bg-gray-100 rounded-lg text-center">
                                         <IoMdText className="text-xl mx-auto" />
                                         <p className="text-sm font-medium">Text</p>
-                                    </div>
+                                    </button>
 
-                                    <div className="p-5 bg-gray-100 rounded-lg text-center">
+                                    <button onClick={() => handleInteraction("video")} className="p-5 bg-gray-100 rounded-lg text-center">
                                         <CiVideoOn className="text-xl mx-auto" />
                                         <p className="text-sm font-medium">Video</p>
-                                    </div>
+                                    </button>
                                 </div>
                             </div>
                         </div>

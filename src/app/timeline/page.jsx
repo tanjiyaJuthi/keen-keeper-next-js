@@ -6,6 +6,7 @@ const TimelinePage = () => {
   const [friends, setFriends] = useState([]);
   const [selectedFriend, setSelectedFriend] = useState(null);
   const [query, setQuery] = useState("");
+  const [typeFilter, setTypeFilter] = useState("all");
 
   const dropdownRef = useRef(null);
 
@@ -47,11 +48,21 @@ const TimelinePage = () => {
     f.name.toLowerCase().includes(query.toLowerCase())
   );
 
+  const filteredInteractions =
+    selectedFriend?.interactions
+      ?.slice()
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .filter((item) => {
+        if (typeFilter === "all") return true;
+        return item.type === typeFilter;
+      })
+      .slice(0, 5);
+
   return (
     <div className="pt-20 pb-20 w-full">
       <h2 className="text-5xl font-bold mb-6">Timeline</h2>
 
-      {/* DROPDOWN */}
+      {/* FRIEND DROPDOWN */}
       <div className="dropdown dropdown-bottom w-64">
         <div
           tabIndex={0}
@@ -66,7 +77,7 @@ const TimelinePage = () => {
           tabIndex={0}
           className="dropdown-content menu bg-base-100 rounded-box z-10 w-64 p-2 shadow"
         >
-          {/* FILTER INPUT */}
+          {/* SEARCH INPUT */}
           <input
             type="text"
             placeholder="Filter by name..."
@@ -85,8 +96,7 @@ const TimelinePage = () => {
                   onClick={() => {
                     setSelectedFriend(friend);
                     setQuery("");
-
-                    // 🔥 IMPORTANT: close dropdown
+                    setTypeFilter("all");
                     dropdownRef.current?.blur();
                   }}
                 >
@@ -102,25 +112,38 @@ const TimelinePage = () => {
         </ul>
       </div>
 
-      {/* TIMELINE */}
-      {selectedFriend?.interactions?.length ? (
-        selectedFriend.interactions
-          .slice()
-          .sort((a, b) => new Date(b.date) - new Date(a.date))
-          .slice(0, 5)
-          .map((item, index) => (
-            <div key={index} className="card card-dash bg-base-100 mt-5">
-              <div className="card-body">
-                <p className="font-medium capitalize">
-                  {getIcon(item.type)} {item.type} with {item.with}
-                </p>
+      {/* INTERACTION FILTER */}
+      <div className="flex gap-2 mt-5 flex-wrap">
+        {["all", "call", "text", "video", "meetup"].map((type) => (
+          <button
+            key={type}
+            onClick={() => setTypeFilter(type)}
+            className={`px-3 py-1 rounded-full text-sm border ${
+              typeFilter === type
+                ? "bg-black text-white"
+                : "bg-white text-black"
+            }`}
+          >
+            {type}
+          </button>
+        ))}
+      </div>
 
-                <p className="text-xs text-gray-500">
-                  {formatDate(item.date)}
-                </p>
-              </div>
+      {/* TIMELINE */}
+      {filteredInteractions?.length ? (
+        filteredInteractions.map((item, index) => (
+          <div key={index} className="card card-dash bg-base-100 mt-5">
+            <div className="card-body">
+              <p className="font-medium capitalize">
+                {getIcon(item.type)} {item.type} with {item.with}
+              </p>
+
+              <p className="text-xs text-gray-500">
+                {formatDate(item.date)}
+              </p>
             </div>
-          ))
+          </div>
+        ))
       ) : (
         <div className="card card-dash bg-base-100 mt-5">
           <div className="card-body">
