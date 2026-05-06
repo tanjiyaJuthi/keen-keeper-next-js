@@ -10,7 +10,11 @@
     "bio": "Met in university. Love hiking together.",
     "goal": 14,
     "next_due_date": "2025-07-20",
-    "interaction_type": "call"
+    "interaction_type": "call",
+    "interactions": [
+      { "type": "meetup", "with": "Tom Baker", "date": "2026-03-29" },
+      { "type": "call", "with": "Marcus Johnson", "date": "2026-03-19" }
+    ]
   },
   {
     "id": 2,
@@ -23,7 +27,11 @@
     "bio": "Colleague from marketing team.",
     "goal": 10,
     "next_due_date": "2025-07-25",
-    "interaction_type": "text"
+    "interaction_type": "text",
+    "interactions": [
+      { "type": "text", "with": "Sarah Chen", "date": "2026-03-28" },
+      { "type": "meetup", "with": "Olivia Martinez", "date": "2026-03-26" }
+    ]
   },
   {
     "id": 3,
@@ -36,7 +44,11 @@
     "bio": "Workout partner at the local gym.",
     "goal": 7,
     "next_due_date": "2025-07-18",
-    "interaction_type": "video"
+    "interaction_type": "video",
+    "interactions": [
+      { "type": "video", "with": "Aisha Patel", "date": "2026-03-23" },
+      { "type": "meetup", "with": "Sarah Chen", "date": "2026-03-21" }
+    ]
   },
   {
     "id": 4,
@@ -49,7 +61,10 @@
     "bio": "Cousin living nearby.",
     "goal": 14,
     "next_due_date": "2025-08-01",
-    "interaction_type": "call"
+    "interaction_type": "call",
+    "interactions": [
+      { "type": "meetup", "with": "Tom Baker", "date": "2026-03-29" }
+    ]
   },
   {
     "id": 5,
@@ -62,7 +77,11 @@
     "bio": "Met at a tech conference.",
     "goal": 10,
     "next_due_date": "2025-07-22",
-    "interaction_type": "text"
+    "interaction_type": "text",
+    "interactions": [
+      { "type": "call", "with": "Marcus Johnson", "date": "2026-03-19" },
+      { "type": "meetup", "with": "Olivia Martinez", "date": "2026-03-26" }
+    ]
   },
   {
     "id": 6,
@@ -75,7 +94,11 @@
     "bio": "High school best friend.",
     "goal": 14,
     "next_due_date": "2025-07-19",
-    "interaction_type": "video"
+    "interaction_type": "video",
+    "interactions": [
+      { "type": "meetup", "with": "Aisha Patel", "date": "2026-03-17" },
+      { "type": "text", "with": "Sarah Chen", "date": "2026-03-28" }
+    ]
   },
   {
     "id": 7,
@@ -88,7 +111,12 @@
     "bio": "Lives next door.",
     "goal": 7,
     "next_due_date": "2025-08-02",
-    "interaction_type": "call"
+    "interaction_type": "call",
+    "interactions": [
+      { "type": "meetup", "with": "Tom Baker", "date": "2026-03-29" },
+      { "type": "call", "with": "Marcus Johnson", "date": "2026-03-19" },
+      { "type": "meetup", "with": "Olivia Martinez", "date": "2026-03-26" }
+    ]
   },
   {
     "id": 8,
@@ -101,7 +129,11 @@
     "bio": "Worked together on a charity project.",
     "goal": 14,
     "next_due_date": "2025-07-17",
-    "interaction_type": "text"
+    "interaction_type": "text",
+    "interactions": [
+      { "type": "meetup", "with": "Sarah Chen", "date": "2026-03-21" },
+      { "type": "video", "with": "Aisha Patel", "date": "2026-03-23" }
+    ]
   },
   {
     "id": 9,
@@ -114,7 +146,11 @@
     "bio": "Online gaming friend.",
     "goal": 10,
     "next_due_date": "2025-07-26",
-    "interaction_type": "video"
+    "interaction_type": "video",
+    "interactions": [
+      { "type": "text", "with": "Sarah Chen", "date": "2026-03-28" },
+      { "type": "meetup", "with": "Olivia Martinez", "date": "2026-03-26" }
+    ]
   },
   {
     "id": 10,
@@ -127,7 +163,11 @@
     "bio": "Classmate from final year.",
     "goal": 12,
     "next_due_date": "2025-07-21",
-    "interaction_type": "call"
+    "interaction_type": "call",
+    "interactions": [
+      { "type": "meetup", "with": "Aisha Patel", "date": "2026-03-23" },
+      { "type": "call", "with": "Marcus Johnson", "date": "2026-03-19" }
+    ]
   },
   {
     "id": 11,
@@ -140,7 +180,11 @@
     "bio": "Football teammate.",
     "goal": 7,
     "next_due_date": "2025-07-28",
-    "interaction_type": "text"
+    "interaction_type": "text",
+    "interactions": [
+      { "type": "meetup", "with": "Tom Baker", "date": "2026-03-29" },
+      { "type": "meetup", "with": "Olivia Martinez", "date": "2026-03-26" }
+    ]
   },
   {
     "id": 12,
@@ -153,6 +197,11 @@
     "bio": "Met through a local book club.",
     "goal": 14,
     "next_due_date": "2025-07-20",
-    "interaction_type": "video"
+    "interaction_type": "video",
+    "interactions": [
+      { "type": "meetup", "with": "Sarah Chen", "date": "2026-03-21" },
+      { "type": "video", "with": "Aisha Patel", "date": "2026-03-23" },
+      { "type": "call", "with": "Marcus Johnson", "date": "2026-03-19" }
+    ]
   }
 ]

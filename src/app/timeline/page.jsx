@@ -1,39 +1,137 @@
-const TimelinePage = async () => {
-    const res = await fetch(process.env.NEXT_APP_URL + "/friends.json");
-    const friends = await res.json();
+"use client";
 
-    return (
-        <div className="pt-20 pb-20 w-full">
-            <h2 className="text-5xl font-bold mb-6">Timeline</h2>
+import { useEffect, useRef, useState } from "react";
 
-            <div className="dropdown dropdown-bottom">
-                <div
-                    tabIndex={0}
-                    role="button"
-                    className="btn m-1 text-left"
-                >
-                    Filter Timeline ⬇️
-                </div>
+const TimelinePage = () => {
+  const [friends, setFriends] = useState([]);
+  const [selectedFriend, setSelectedFriend] = useState(null);
+  const [query, setQuery] = useState("");
 
-                <ul
-                    tabIndex={0}
-                    className="dropdown-content menu bg-base-100 rounded-box z-10 w-52 p-2 shadow text-left"
-                >
-                    <li><a className="text-left">Item 1</a></li>
-                    <li><a className="text-left">Item 2</a></li>
-                </ul>
-            </div>
+  const dropdownRef = useRef(null);
 
-            <div className="card card-dash bg-base-100 mt-5">
-                <div className="card-body">
-                    <h2 className="card-title">Card Title</h2>
-                    <p>
-                    A card component has a figure, a body part, and inside body there are title and actions parts
-                    </p>
-                </div>
-            </div>
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("/friends.json");
+      const data = await res.json();
+
+      setFriends(data);
+      setSelectedFriend(data[0]);
+    };
+
+    fetchData();
+  }, []);
+
+  const getIcon = (type) => {
+    switch (type) {
+      case "call":
+        return "📞";
+      case "text":
+        return "💬";
+      case "video":
+        return "📹";
+      case "meetup":
+        return "🤝";
+      default:
+        return "🔹";
+    }
+  };
+
+  const formatDate = (date) =>
+    new Date(date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+
+  const filteredFriends = friends.filter((f) =>
+    f.name.toLowerCase().includes(query.toLowerCase())
+  );
+
+  return (
+    <div className="pt-20 pb-20 w-full">
+      <h2 className="text-5xl font-bold mb-6">Timeline</h2>
+
+      {/* DROPDOWN */}
+      <div className="dropdown dropdown-bottom w-64">
+        <div
+          tabIndex={0}
+          role="button"
+          className="btn m-1 w-full"
+          ref={dropdownRef}
+        >
+          {selectedFriend?.name || "Select Friend"} ⬇️
         </div>
-    );
+
+        <ul
+          tabIndex={0}
+          className="dropdown-content menu bg-base-100 rounded-box z-10 w-64 p-2 shadow"
+        >
+          {/* FILTER INPUT */}
+          <input
+            type="text"
+            placeholder="Filter by name..."
+            className="input input-sm input-bordered mb-2 w-full"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onClick={(e) => e.stopPropagation()}
+          />
+
+          {/* FRIEND LIST */}
+          {filteredFriends.length ? (
+            filteredFriends.map((friend) => (
+              <li key={friend.id}>
+                <button
+                  className="text-left w-full"
+                  onClick={() => {
+                    setSelectedFriend(friend);
+                    setQuery("");
+
+                    // 🔥 IMPORTANT: close dropdown
+                    dropdownRef.current?.blur();
+                  }}
+                >
+                  {friend.name}
+                </button>
+              </li>
+            ))
+          ) : (
+            <li className="text-sm text-gray-400 p-2">
+              No friends found
+            </li>
+          )}
+        </ul>
+      </div>
+
+      {/* TIMELINE */}
+      {selectedFriend?.interactions?.length ? (
+        selectedFriend.interactions
+          .slice()
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .slice(0, 5)
+          .map((item, index) => (
+            <div key={index} className="card card-dash bg-base-100 mt-5">
+              <div className="card-body">
+                <p className="font-medium capitalize">
+                  {getIcon(item.type)} {item.type} with {item.with}
+                </p>
+
+                <p className="text-xs text-gray-500">
+                  {formatDate(item.date)}
+                </p>
+              </div>
+            </div>
+          ))
+      ) : (
+        <div className="card card-dash bg-base-100 mt-5">
+          <div className="card-body">
+            <p className="text-sm text-gray-400">
+              No interactions found
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default TimelinePage;

@@ -111,7 +111,7 @@ const FriendDetailsPage = async ({ params }) => {
                     </div>
 
                     <div className="flex-2 flex flex-col gap-5 w-full">
-                        <div className="flex gap-10 justify-between">
+                        <div className="grid grid-cols-3 gap-5 w-full">
                             {stats.map((stat, i) => (
                                 <StatCard key={i} value={stat.value} label={stat.label} />
                             ))}
@@ -133,7 +133,7 @@ const FriendDetailsPage = async ({ params }) => {
                                 
                                 <p className="font-semibold text-lg">Quick Check-In</p>
 
-                                <div className="flex gap-4 justify-between mt-3 w-full">
+                                <div className="grid grid-cols-3 gap-5 justify-between mt-3 w-full">
                                     <div className="p-5 bg-gray-100 rounded-lg text-center">
                                         <IoCallOutline className="text-xl mx-auto" />
                                         <p className="text-sm font-medium">Call</p>
